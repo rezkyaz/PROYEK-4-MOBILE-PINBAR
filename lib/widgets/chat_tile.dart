@@ -17,7 +17,7 @@ class ChatTile extends StatelessWidget {
             Row(
               children: [
                 Image.asset(
-                  'assets/logo.png',
+                  'assets/profile-online.png',
                   width: 54,
                 ),
                 SizedBox(
@@ -28,14 +28,14 @@ class ChatTile extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Satria Camp Store',
+                        'SAGA POLBAN',
                         style: tulisanTextStyle.copyWith(
                           fontSize: 15,
                           fontWeight: semiBold,
                         ),
                       ),
                       Text(
-                        'Selamat Pagi, Ada yang bisa saya bantu?',
+                        'Hallo Kak, untuk barang ini ready ya, boleh langsung di checkout saja',
                         style: tulisankecilTextStyle.copyWith(
                           fontWeight: light,
                         ),

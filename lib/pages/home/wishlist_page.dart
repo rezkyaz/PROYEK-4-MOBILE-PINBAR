@@ -9,7 +9,7 @@ class WishlistPage extends StatelessWidget {
       return AppBar(
         backgroundColor: warnatulisan,
         centerTitle: true,
-        title: Text('Keranjang',
+        title: Text('Wishlist',
             style: primaryTextStyle.copyWith(
               fontSize: 18,
               fontWeight: semiBold,
@@ -28,14 +28,14 @@ class WishlistPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Image.asset(
-                'assets/image_wishlist.png',
+                'assets/cart-icon.png',
                 width: 74,
               ),
               SizedBox(
                 height: 23,
               ),
               Text(
-                'You don\'t have any favorite item',
+                'Keranjangmu masih kosong',
                 style: tulisanTextStyle.copyWith(
                   fontSize: 16,
                   fontWeight: medium,
@@ -45,7 +45,7 @@ class WishlistPage extends StatelessWidget {
                 height: 12,
               ),
               Text(
-                'Let\'s find your favorite item',
+                'Ayo cari barang yang kamu inginkan',
                 style: tulisankecilTextStyle.copyWith(
                   fontSize: 14,
                 ),
@@ -65,7 +65,7 @@ class WishlistPage extends StatelessWidget {
                     ),
                   ),
                   child: Text(
-                    'Explore Store',
+                    'Jelajahi Toko',
                     style: primaryTextStyle.copyWith(
                       fontSize: 16,
                       fontWeight: medium,
@@ -89,8 +89,8 @@ class WishlistPage extends StatelessWidget {
               ),
               children: [
                 WishlistCard(),
-                WishlistCard(),
-                WishlistCard(),
+                //WishlistCard(),
+                //WishlistCard(),
               ],
             )),
       );
@@ -99,6 +99,7 @@ class WishlistPage extends StatelessWidget {
     return Column(
       children: [
         header(),
+        //emptyWishlist(),
         content(),
       ],
     );

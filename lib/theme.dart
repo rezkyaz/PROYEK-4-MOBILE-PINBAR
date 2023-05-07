@@ -7,9 +7,10 @@ Color warnatulisankecil = Color(0xff504F5E);
 Color warnatulisan = Color(0xff0D2237);
 Color warnabgproyek = Color(0xffE0EAF4);
 Color warnabgareaproyek = Color(0xffffffff);
-Color primaryColor = Color(0xff6C5ECF);
-Color secondaryColor = Color(0xff38ABBE);
-Color alertColor = Color(0xffED6363);
+Color primaryColor = Color(0xff2F77AF);
+Color secondaryColor = Color(0xffBEDBF8);
+Color successColor = Color(0xff03971B);
+Color alertColor = Color(0xffE90707);
 Color priceColor = Color(0xff2C96F1);
 Color backgroundColor1 = Color(0xff1F1D2B);
 Color backgroundColor2 = Color(0xff2B2937);
@@ -51,6 +52,14 @@ TextStyle purpleTextStyle = GoogleFonts.poppins(
 
 TextStyle blackTextStyle = GoogleFonts.poppins(
   color: blackColor,
+);
+
+TextStyle successTextStyle = GoogleFonts.poppins(
+  color: successColor,
+);
+
+TextStyle alertTextStyle = GoogleFonts.poppins(
+  color: alertColor,
 );
 
 FontWeight light = FontWeight.w300;

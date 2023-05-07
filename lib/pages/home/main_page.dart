@@ -17,11 +17,14 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) {
     Widget cartButton() {
       return FloatingActionButton(
-        onPressed: () {},
-        backgroundColor: secondaryColor,
+        onPressed: () {
+          Navigator.pushNamed(context, '/cart');
+        },
+        backgroundColor: primaryColor,
         child: Image.asset(
-          'assets/icon_cart.png',
+          'assets/cart-icon.png',
           width: 20,
+          color: Colors.white,
         ),
       );
     }
@@ -58,7 +61,7 @@ class _MainPageState extends State<MainPage> {
                 ),
                 BottomNavigationBarItem(
                   icon: Container(
-                    margin: EdgeInsets.only(top: 20, bottom: 10),
+                    margin: EdgeInsets.only(top: 20, bottom: 10, right: 45),
                     child: Image.asset(
                       'assets/icon_chat.png',
                       width: 20,
@@ -70,10 +73,10 @@ class _MainPageState extends State<MainPage> {
                 ),
                 BottomNavigationBarItem(
                   icon: Container(
-                    margin: EdgeInsets.only(top: 20, bottom: 10),
+                    margin: EdgeInsets.only(top: 20, bottom: 10, left: 45),
                     child: Image.asset(
                       'assets/icon_wishlist.png',
-                      width: 20,
+                      width: 19,
                       color:
                           currentIndex == 2 ? primaryColor : Color(0xff808191),
                     ),
@@ -101,16 +104,15 @@ class _MainPageState extends State<MainPage> {
       switch (currentIndex) {
         case 0:
           return HomePage();
-          break;
+
         case 1:
           return ChatPage();
-          break;
+
         case 2:
           return WishlistPage();
-          break;
+
         case 3:
           return ProfilePage();
-          break;
 
         default:
           return HomePage();

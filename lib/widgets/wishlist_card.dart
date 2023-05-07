@@ -52,8 +52,8 @@ class WishlistCard extends StatelessWidget {
             ),
           ),
           Image.asset(
-            'assets/button_add.png',
-            width: 34,
+            'assets/image_wishlist.png',
+            width: 20,
           ),
         ],
       ),

@@ -92,10 +92,10 @@ class SignInPage extends StatelessWidget {
                     ),
                     Expanded(
                       child: TextFormField(
-                        style: primaryTextStyle,
+                        style: tulisankecilTextStyle,
                         decoration: InputDecoration.collapsed(
                           hintText: 'Email Anda',
-                          hintStyle: tulisankecilTextStyle,
+                          hintStyle: secondaryTextStyle,
                         ),
                       ),
                     ),
@@ -145,11 +145,11 @@ class SignInPage extends StatelessWidget {
                     ),
                     Expanded(
                       child: TextFormField(
-                        style: primaryTextStyle,
+                        style: tulisankecilTextStyle,
                         obscureText: true,
                         decoration: InputDecoration.collapsed(
                           hintText: 'Password Anda',
-                          hintStyle: tulisankecilTextStyle,
+                          hintStyle: secondaryTextStyle,
                         ),
                       ),
                     ),
@@ -195,7 +195,7 @@ class SignInPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'Don\'t have an account? ',
+              'Belum punya akun? ',
               style: subtitleTextStyle.copyWith(
                 fontSize: 12,
               ),
@@ -205,7 +205,7 @@ class SignInPage extends StatelessWidget {
                 Navigator.pushNamed(context, '/sign-up');
               },
               child: Text(
-                'Sign Up',
+                'Daftar',
                 style: purpleTextStyle.copyWith(
                   fontSize: 12,
                   fontWeight: medium,

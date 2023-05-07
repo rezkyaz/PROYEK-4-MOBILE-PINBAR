@@ -7,13 +7,13 @@ class ChatPage extends StatelessWidget {
   Widget build(BuildContext context) {
     Widget header() {
       return AppBar(
-        backgroundColor: warnabgareaproyek,
+        backgroundColor: warnatulisan,
         centerTitle: true,
         title: Text(
           'Daftar Chat',
-          style: tulisanTextStyle.copyWith(
+          style: primaryTextStyle.copyWith(
             fontSize: 18,
-            fontWeight: medium,
+            fontWeight: semiBold,
           ),
         ),
         elevation: 0,
@@ -37,7 +37,7 @@ class ChatPage extends StatelessWidget {
                 height: 20,
               ),
               Text(
-                'Opss tidak ada pesan yang tersedia?',
+                'Oops, belum ada pesan',
                 style: tulisanTextStyle.copyWith(
                   fontSize: 16,
                   fontWeight: medium,
@@ -47,7 +47,7 @@ class ChatPage extends StatelessWidget {
                 height: 12,
               ),
               Text(
-                'Seems like you never have done a transaction',
+                'Sepertinya kamu belum pernah melakukan transaksi',
                 style: tulisankecilTextStyle.copyWith(
                   fontSize: 14,
                   fontWeight: regular,
@@ -72,7 +72,7 @@ class ChatPage extends StatelessWidget {
                     ),
                   ),
                   child: Text(
-                    'Explore Store',
+                    'Jelajahi Toko',
                     style: primaryTextStyle.copyWith(
                       fontSize: 16,
                       fontWeight: medium,

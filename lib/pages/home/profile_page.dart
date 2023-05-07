@@ -32,7 +32,7 @@ class ProfilePage extends StatelessWidget {
                       Text(
                         'Hallo, Code Ninja',
                         style: primaryTextStyle.copyWith(
-                          fontSize: 24,
+                          fontSize: 20,
                           fontWeight: semiBold,
                         ),
                       ),
@@ -94,6 +94,7 @@ class ProfilePage extends StatelessWidget {
           ),
           decoration: BoxDecoration(
             color: warnabgproyek,
+            borderRadius: BorderRadius.circular(30),
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -102,14 +103,19 @@ class ProfilePage extends StatelessWidget {
                 height: 20,
               ),
               Text(
-                'Account Information',
-                style: priceTextStyle.copyWith(
+                'Informasi Akun',
+                style: blackTextStyle.copyWith(
                   fontSize: 16,
-                  fontWeight: semiBold,
+                  fontWeight: bold,
                 ),
               ),
-              menuItem(
-                'Edit Profile',
+              GestureDetector(
+                onTap: () {
+                  Navigator.pushNamed(context, '/edit-profile');
+                },
+                child: menuItem(
+                  'Edit Profile',
+                ),
               ),
               menuItem(
                 'Pesanan Kamu',

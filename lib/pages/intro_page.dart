@@ -1,169 +1,55 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/providers/auth_provider.dart';
 import 'package:flutter_application_1/theme.dart';
 import 'package:flutter/src/widgets/text.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_application_1/widgets/intro_card.dart';
 
-class SignUpPage extends StatelessWidget {
-  TextEditingController nameController = TextEditingController(text: '');
-  TextEditingController usernameController = TextEditingController(text: '');
-  TextEditingController emailController = TextEditingController(text: '');
-  TextEditingController passwordController = TextEditingController(text: '');
-
+class IntroPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    AuthProvider authProvider = Provider.of<AuthProvider>(context);
-
-    handleSignUp() async {
-      var data = await authProvider.register(
-        name: nameController.text,
-        username: usernameController.text,
-        email: emailController.text,
-        password: passwordController.text,
-      );
-
-      print(data);
-      if (data) {
-        Navigator.pushNamed(context, '/home');
-      }
-    }
-
     Widget header() {
       return Container(
-        margin: EdgeInsets.only(top: 30),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'Buat Akun',
-              style: tulisanTextStyle.copyWith(
-                fontSize: 24,
-                fontWeight: semiBold,
+        margin: EdgeInsets.only(left: 85),
+        child: Container(
+          width: 130,
+          height: 100,
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage(
+                'assets/logo-pinbar.png',
               ),
             ),
-            SizedBox(
-              height: 2,
-            ),
-            Text(
-              'Daftar dan nikmati fitur kami',
-              style: tulisankecilTextStyle,
-            ),
-          ],
+          ),
         ),
       );
     }
 
-    Widget nameInput() {
+    Widget content() {
       return Container(
-        margin: EdgeInsets.only(top: 50),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'Nama Lengkap',
-              style: tulisanTextStyle.copyWith(
-                fontSize: 16,
-                fontWeight: medium,
+        margin: EdgeInsets.only(top: 14),
+        child: SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Row(
+            children: [
+              SizedBox(
+                width: defaultMargin,
               ),
-            ),
-            SizedBox(
-              height: 12,
-            ),
-            Container(
-              height: 50,
-              padding: EdgeInsets.symmetric(
-                horizontal: 16,
+              Row(
+                children: [
+                  IntroCard(),
+                  IntroCard2(),
+                  IntroCard3(),
+                  IntroCard4(),
+                ],
               ),
-              decoration: BoxDecoration(
-                color: warnabgareaproyek,
-                borderRadius: BorderRadius.circular(12),
-              ),
-              child: Center(
-                child: Row(
-                  children: [
-                    Image.asset(
-                      'assets/icon_name.png',
-                      width: 17,
-                    ),
-                    SizedBox(
-                      width: 16,
-                    ),
-                    Expanded(
-                      child: TextFormField(
-                        style: tulisankecilTextStyle,
-                        controller: nameController,
-                        decoration: InputDecoration.collapsed(
-                          hintText: 'Nama Lengkap Anda',
-                          hintStyle: secondaryTextStyle,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ],
-        ),
-      );
-    }
-
-    Widget usernameInput() {
-      return Container(
-        margin: EdgeInsets.only(top: 20),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'Username',
-              style: tulisanTextStyle.copyWith(
-                fontSize: 16,
-                fontWeight: medium,
-              ),
-            ),
-            SizedBox(
-              height: 12,
-            ),
-            Container(
-              height: 50,
-              padding: EdgeInsets.symmetric(
-                horizontal: 16,
-              ),
-              decoration: BoxDecoration(
-                color: warnabgareaproyek,
-                borderRadius: BorderRadius.circular(12),
-              ),
-              child: Center(
-                child: Row(
-                  children: [
-                    Image.asset(
-                      'assets/icon_username.png',
-                      width: 17,
-                    ),
-                    SizedBox(
-                      width: 16,
-                    ),
-                    Expanded(
-                      child: TextFormField(
-                        style: tulisankecilTextStyle,
-                        controller: usernameController,
-                        decoration: InputDecoration.collapsed(
-                          hintText: 'Username Anda',
-                          hintStyle: secondaryTextStyle,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ],
+            ],
+          ),
         ),
       );
     }
 
     Widget emailInput() {
       return Container(
-        margin: EdgeInsets.only(top: 20),
+        margin: EdgeInsets.only(top: 70),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -199,7 +85,6 @@ class SignUpPage extends StatelessWidget {
                     Expanded(
                       child: TextFormField(
                         style: tulisankecilTextStyle,
-                        controller: emailController,
                         decoration: InputDecoration.collapsed(
                           hintText: 'Email Anda',
                           hintStyle: secondaryTextStyle,
@@ -253,7 +138,6 @@ class SignUpPage extends StatelessWidget {
                     Expanded(
                       child: TextFormField(
                         style: tulisankecilTextStyle,
-                        controller: passwordController,
                         obscureText: true,
                         decoration: InputDecoration.collapsed(
                           hintText: 'Password Anda',
@@ -270,13 +154,15 @@ class SignUpPage extends StatelessWidget {
       );
     }
 
-    Widget signUpButton() {
+    Widget signInButton() {
       return Container(
         height: 50,
         width: double.infinity,
         margin: EdgeInsets.only(top: 30),
         child: TextButton(
-          onPressed: handleSignUp,
+          onPressed: () {
+            Navigator.pushNamed(context, '/sign-in');
+          },
           style: TextButton.styleFrom(
             backgroundColor: warnatulisan,
             shape: RoundedRectangleBorder(
@@ -284,7 +170,7 @@ class SignUpPage extends StatelessWidget {
             ),
           ),
           child: Text(
-            'Daftar',
+            'Masuk',
             style: primaryTextStyle.copyWith(
               fontSize: 16,
               fontWeight: medium,
@@ -301,17 +187,17 @@ class SignUpPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'Sudah punya akun? ',
+              'Belum punya akun? ',
               style: subtitleTextStyle.copyWith(
                 fontSize: 12,
               ),
             ),
             GestureDetector(
               onTap: () {
-                Navigator.pop(context);
+                Navigator.pushNamed(context, '/sign-up');
               },
               child: Text(
-                'Masuk',
+                'Daftar',
                 style: purpleTextStyle.copyWith(
                   fontSize: 12,
                   fontWeight: medium,
@@ -335,11 +221,10 @@ class SignUpPage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               header(),
-              nameInput(),
-              usernameInput(),
-              emailInput(),
-              passwordInput(),
-              signUpButton(),
+              content(),
+              //emailInput(),
+              //passwordInput(),
+              signInButton(),
               Spacer(),
               footer(),
             ],
